@@ -21,22 +21,23 @@ const calc = () => {
     let result
 
     switch (action) {
-    case '+':
-      result = num1 + num2
-      break
-    case '-':
-      result = num1 - num2
-      break
-    case '*':
-      result = num1 * num2
-      break
+      case '+':
+        result = num1 + num2
+        break
+      case '-':
+        result = num1 - num2
+        break
+      case '*':
+        result = num1 * num2
+        break
     }
     const answer = readlineSync.question('Your answer: ')
 
     if (result === +answer) {
       console.log('Correct!')
       correctAnswers += 1
-    } else {
+    }
+    else {
       console.log(`${answer} is wrong answer ;(. Correct answer was ${result}.`)
       console.log(`Let's try again, ${name}!`)
       return

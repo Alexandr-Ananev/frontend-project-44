@@ -18,7 +18,7 @@ const gcd = () => {
     return num1
   }
 
-  while(correctAnswers < countRounds) {
+  while (correctAnswers < countRounds) {
     const num1 = randomNum()
     const num2 = randomNum()
     const correctAnswer = findGcd(num1, num2)
@@ -29,7 +29,8 @@ const gcd = () => {
     if (correctAnswer === answer) {
       console.log('Correct!')
       correctAnswers += 1
-    } else {
+    }
+    else {
       console.log(`${answer} is wrong answer ;(. Correct answer was ${correctAnswer}.`)
       console.log(`Let's try again, ${name}!`)
       return

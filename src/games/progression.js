@@ -27,7 +27,7 @@ const progression = () => {
     const correctAnswer = currentProgression[missedIndex]
 
     currentProgression[missedIndex] = '..'
-    // currentProgression.splice(missedIndex, 1, '..');
+
     const question = currentProgression.join(' ')
 
     console.log(`Question: ${question}`)
@@ -37,7 +37,8 @@ const progression = () => {
     if (answer === correctAnswer) {
       console.log('Correct!')
       rounds += 1
-    } else {
+    }
+    else {
       console.log(`${answer} is wrong answer ;(. Correct answer was ${correctAnswer}.`)
       console.log(`Let's try again, ${name}!`)
       return

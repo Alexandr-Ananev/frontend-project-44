@@ -1,7 +1,7 @@
 import readlineSync from 'readline-sync'
 import greetUser from '../cli.js'
 
-const isEven = (number) => number % 2 === 0
+const isEven = number => number % 2 === 0
 
 const evenGame = () => {
   const name = greetUser()
@@ -20,7 +20,8 @@ const evenGame = () => {
     if (answer === correctAnswer) {
       console.log('Correct!')
       correctAnswers += 1
-    } else {
+    }
+    else {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`)
       console.log(`Let's try again, ${name}!`)
       return
