@@ -27,5 +27,8 @@
   "homepage": "https://github.com/Alexandr-Ananev/frontend-project-44#readme",
   "dependencies": {
     "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "@stylistic/eslint-plugin": "^5.5.0"
   }
 }
