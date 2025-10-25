@@ -39,4 +39,3 @@ const gcd = () => {
 }
 
 export default gcd
-

@@ -31,4 +31,3 @@ const evenGame = () => {
 }
 
 export default evenGame
-

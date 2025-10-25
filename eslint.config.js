@@ -20,9 +20,8 @@ export default defineConfig([
       '@stylistic/semi': ['error', 'never'], // запрещает лишние точки с запятой
       '@stylistic/no-trailing-spaces': 'error', // запрещает пробелы в конце строки
       '@stylistic/eol-last': ['error', 'always'], // требует перевод строки в конце файла
-      '@stylistic/no-multiple-empty-lines': ['error', { max: 1 }], // максимум 1 пустая строка подряд
+      '@stylistic/no-multiple-empty-lines': ['error', { max: 1, maxEOF: 0 }], // максимум 1 пустая строка внутри кода и 0 в конце кода
       '@stylistic/spaced-comment': ['error', 'always'], // пробел после // и внутри /* */
     },
   },
 ])
-

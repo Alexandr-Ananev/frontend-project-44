@@ -10,4 +10,3 @@ function greetUser() {
 }
 
 export default greetUser
-
