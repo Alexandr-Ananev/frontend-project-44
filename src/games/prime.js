@@ -1,5 +1,6 @@
 import readlineSync from 'readline-sync'
 import greetUser from '../cli.js'
+import getRandomNum from '../getRandomNum.js'
 
 const prime = () => {
   const name = greetUser()
@@ -14,12 +15,13 @@ const prime = () => {
     }
     return true
   }
-  const range = 200
+  const startRange = 0
+  const endRange = 200
   const countRounds = 3
 
   let rounds = 0
   while (rounds < countRounds) {
-    const question = Math.floor(Math.random() * (range + 1))
+    const question = getRandomNum(startRange, endRange)
     const correctAnswer = isPrime(question) ? 'yes' : 'no'
 
     console.log(`Question: ${question}`)

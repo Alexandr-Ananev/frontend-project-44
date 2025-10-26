@@ -1,20 +1,21 @@
 import readlineSync from 'readline-sync'
 import greetUser from '../cli.js'
+import getRandomNum from '../getRandomNum.js'
 
 const calc = () => {
   const name = greetUser()
   console.log('What is the result of the expression?')
 
   const actions = ['+', '-', '*']
-  const range = 200
+  const startRange = 0
+  const endRange = 200
   let correctAnswers = 0
   const countRounds = 3
-  const randomNum = () => Math.floor(Math.random() * (range + 1))
 
   while (correctAnswers < countRounds) {
     const action = actions[Math.floor(Math.random() * actions.length)]
-    const num1 = randomNum()
-    const num2 = randomNum()
+    const num1 = getRandomNum(startRange, endRange)
+    const num2 = getRandomNum(startRange, endRange)
 
     console.log(`Question: ${num1} ${action} ${num2}`)
 

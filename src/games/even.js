@@ -1,5 +1,6 @@
 import readlineSync from 'readline-sync'
 import greetUser from '../cli.js'
+import getRandomNum from '../getRandomNum.js'
 
 const isEven = number => number % 2 === 0
 
@@ -9,9 +10,11 @@ const evenGame = () => {
 
   let correctAnswers = 0
   const countRounds = 3
+  const startRange = 0
+  const endRange = 100
 
   while (correctAnswers < countRounds) {
-    const number = Math.floor(Math.random() * 100)
+    const number = getRandomNum(startRange, endRange)
     console.log(`Question: ${number}`)
     const answer = readlineSync.question('Your answer: ')
 
