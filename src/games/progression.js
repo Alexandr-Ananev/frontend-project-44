@@ -1,51 +1,39 @@
-import readlineSync from 'readline-sync'
-import greetUser from '../cli.js'
+import runGame from '../index.js'
 import getRandomNum from '../getRandomNum.js'
 
+const description = 'What number is missing in the progression?'
+const countRounds = 3
+const countNums = 10
+const minStep = 1
+const maxStep = 5
+const startRange = 0
+const endRange = 100
+const makeProgression = (firstNum, step, countNums) => {
+  const currentProgression = []
+  for (let i = 0; i < countNums; i++) {
+    const currentNum = firstNum + step * i
+    currentProgression.push(currentNum)
+  }
+  return currentProgression
+}
+
 const progression = () => {
-  const name = greetUser()
-
-  console.log('What number is missing in the progression?')
-
-  const countNums = 10
-  const minStep = 1
-  const maxStep = 5
-  const startRange = 0
-  const endRange = 100
-  const countRounds = 3
-
-  let rounds = 0
-  while (rounds < countRounds) {
-    const currentProgression = []
+  const rounds = []
+  for (let i = 0; i < countRounds; i += 1) {
+    let currentProgression = null
     const firstNum = getRandomNum(startRange, endRange)
     const step = getRandomNum(minStep, maxStep)
 
-    for (let i = 0; i < countNums; i++) {
-      const currentNum = firstNum + step * i
-      currentProgression.push(currentNum)
-    }
+    currentProgression = makeProgression(firstNum, step, countNums)
     const missedIndex = getRandomNum(0, countNums - 1)
-    const correctAnswer = currentProgression[missedIndex]
+    const correctAnswer = String(currentProgression[missedIndex])
 
     currentProgression[missedIndex] = '..'
 
     const question = currentProgression.join(' ')
-
-    console.log(`Question: ${question}`)
-
-    const answer = +readlineSync.question('Your answer: ')
-
-    if (answer === correctAnswer) {
-      console.log('Correct!')
-      rounds += 1
-    }
-    else {
-      console.log(`${answer} is wrong answer ;(. Correct answer was ${correctAnswer}.`)
-      console.log(`Let's try again, ${name}!`)
-      return
-    }
+    rounds.push([question, correctAnswer])
   }
-  console.log(`Congratulations, ${name}!`)
+  runGame(description, rounds)
 }
 
 export default progression
